@@ -10,6 +10,7 @@ const PlayNumber = ({ number, status, onClick }) => (
     className="number"
     style={{ backgroundColor: colors[status] }}
     onClick={() => onClick(number, status)}
+    disabled={status === "used"}
   >
     {number}
   </button>

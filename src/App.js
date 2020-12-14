@@ -1,9 +1,22 @@
+import React from "react";
+
 import "./App.css";
 
 import Game from "./components/game";
 
-function App() {
-  return <Game />;
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      gameId: 1,
+    };
+  }
+
+  startNewGame = () => this.setState((state) => ({ gameId: state.gameId + 1 }));
+
+  render() {
+    return <Game key={this.state.gameId} startNewGame={this.startNewGame} />;
+  }
 }
 
 export default App;
