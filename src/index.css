@@ -1,13 +1,92 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* CSS Reset */
+
+button {
+  cursor: pointer;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button:focus,
+button:active {
+  outline: none;
+}
+
+/* Game */
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Instruction */
+
+.instruction {
+  margin: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* PlayGround */
+
+.playground {
+  display: flex;
+}
+
+.playground > div {
+  width: 50%;
+  border: 1px solid #ddd;
+  padding: 15px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Star */
+
+.star {
+  margin: 0 15px;
+}
+
+.star::after {
+  content: "\2605";
+  font-size: 45px;
+}
+
+/* PlayNumber */
+
+.number {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  width: 45px;
+  height: 45px;
+  margin: 10px;
+  font-size: 25px;
+}
+
+.number:disabled {
+  color: inherit;
+  cursor: not-allowed;
+}
+
+/* PlayAgain */
+
+.game-finished {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-finished .finished-message {
+  font-size: 250%;
+  font-weight: bold;
+  margin: 15px;
+}
+
+/* Timer */
+
+.timer {
+  color: #666;
+  margin-top: 15px;
 }
