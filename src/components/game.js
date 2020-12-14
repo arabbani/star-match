@@ -29,6 +29,12 @@ export default class Game extends React.Component {
     }, 1000);
   }
 
+  componentWillUnmount() {
+    if (this.intervalId) {
+      clearImmediate(this.intervalId);
+    }
+  }
+
   gameStatus = () => {
     if (this.state.availableNumbers.length === 0) {
       clearInterval(this.intervalId);
@@ -114,7 +120,7 @@ export default class Game extends React.Component {
           <div className="number-display">
             {utils.range(1, 9).map((number) => (
               <PlayNumber
-                key={number}
+                key={number.toString()}
                 number={number}
                 status={this.numberStatus(number)}
                 onClick={this.onNumberClick}

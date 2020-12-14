@@ -15,7 +15,12 @@ class App extends React.Component {
   startNewGame = () => this.setState((state) => ({ gameId: state.gameId + 1 }));
 
   render() {
-    return <Game key={this.state.gameId} startNewGame={this.startNewGame} />;
+    return (
+      <Game
+        key={this.state.gameId.toString()}
+        startNewGame={this.startNewGame}
+      />
+    );
   }
 }
 
