@@ -90,6 +90,16 @@ export default class Game extends React.Component {
         <div className="instruction">
           Pick 1 or more numbers to make the sum equal to the number of stars
         </div>
+        <div className="timer">
+          Time Remaining:{" "}
+          <span
+            style={{
+              color: this.state.secondsLeft < 5 ? "red" : "",
+            }}
+          >
+            {this.state.secondsLeft}
+          </span>
+        </div>
         <div className="playground">
           <div className="game-state">
             {this.gameStatus() !== "active" ? (
@@ -112,7 +122,6 @@ export default class Game extends React.Component {
             ))}
           </div>
         </div>
-        <div className="timer">Time Remaining: {this.state.secondsLeft}</div>
       </div>
     );
   }
