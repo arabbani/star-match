@@ -1,5 +1,3 @@
-import React from "react";
-
 const PlayAgain = (props) => (
   <div className="game-finished">
     <div

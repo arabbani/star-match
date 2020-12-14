@@ -1,5 +1,3 @@
-import React from "react";
-
 import utils from "../utils";
 
 function StarDisplay(props) {
