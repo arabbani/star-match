@@ -1,9 +1,31 @@
+button {
+  cursor: pointer;
+}
+
+button:focus,
+button:active {
+  outline: none;
+}
+
+/* Star */
+
 .star {
   display: inline-block;
   margin: 0 15px;
 }
 
-.star:after {
+.star::after {
   content: "\2605";
   font-size: 45px;
+}
+
+/* PlayNumber */
+
+.number {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  width: 45px;
+  height: 45px;
+  margin: 10px;
+  font-size: 25px;
 }
