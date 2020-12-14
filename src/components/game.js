@@ -78,7 +78,7 @@ export default class Game extends React.Component {
   };
 
   onNumberClick = (number, status) => {
-    if (this.state.secondsLeft === 0) {
+    if (status === "used" || this.state.secondsLeft === 0) {
       return;
     }
     const newCandidateNumbers =
