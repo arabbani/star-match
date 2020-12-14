@@ -29,6 +29,12 @@ export default class Game extends React.Component {
     }, 1000);
   }
 
+  componentWillUnmount() {
+    if (this.intervalId) {
+      clearImmediate(this.intervalId);
+    }
+  }
+
   gameStatus = () => {
     if (this.state.availableNumbers.length === 0) {
       clearInterval(this.intervalId);
@@ -90,6 +96,16 @@ export default class Game extends React.Component {
         <div className="instruction">
           Pick 1 or more numbers to make the sum equal to the number of stars
         </div>
+        <div className="timer">
+          Time Remaining:{" "}
+          <span
+            style={{
+              color: this.state.secondsLeft < 5 ? "red" : "",
+            }}
+          >
+            {this.state.secondsLeft}
+          </span>
+        </div>
         <div className="playground">
           <div className="game-state">
             {this.gameStatus() !== "active" ? (
@@ -104,7 +120,7 @@ export default class Game extends React.Component {
           <div className="number-display">
             {utils.range(1, 9).map((number) => (
               <PlayNumber
-                key={number}
+                key={number.toString()}
                 number={number}
                 status={this.numberStatus(number)}
                 onClick={this.onNumberClick}
@@ -112,7 +128,6 @@ export default class Game extends React.Component {
             ))}
           </div>
         </div>
-        <div className="timer">Time Remaining: {this.state.secondsLeft}</div>
       </div>
     );
   }
